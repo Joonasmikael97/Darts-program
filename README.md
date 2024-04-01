@@ -11,6 +11,12 @@
 #  cd darts-scorekeeper
 #  npm start
 
+#  Troublshoot 
+# MODULE NOT FOUND: npm install --save react react-dom @types/react @types/react-dom
+# 'react-scripts' is not recognized as a external or internal command: npm i -g react-scripts
+
+
+
 
 # NPM KOMENTOJA:
 
