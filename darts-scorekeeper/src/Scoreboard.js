@@ -1,6 +1,8 @@
 import React from 'react';
+import { useGameState } from './GameStateContext';
 
-function Scoreboard({ player1Score, player2Score, gameWinners, overallWinner }) {
+function Scoreboard() {
+  const { player1Score, player2Score, gameWinners, overallWinner } = useGameState();
   return (
     <div>
       <h2>Scoreboard</h2>

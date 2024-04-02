@@ -1,6 +1,8 @@
 import React from 'react';
+import { useGameState } from './GameStateContext';
 
-function GameSettings({ gameMode, bestOf, setGameMode, setBestOf }) {
+function GameSettings() {
+  const { gameMode, bestOf, setGameMode, setBestOf } = useGameState();
   return (
     <div>
       <label>Select Game Mode:</label>

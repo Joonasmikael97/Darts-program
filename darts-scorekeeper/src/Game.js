@@ -1,19 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useGameState } from './GameStateContext';
 import Scoreboard from './Scoreboard';
 import GameSettings from './GameSettings';
 
 function Game() {
-  const [player1Score, setPlayer1Score] = useState(301);
-  const [player2Score, setPlayer2Score] = useState(301);
-  const [currentPlayer, setCurrentPlayer] = useState('Player 1');
-  const [inputScore, setInputScore] = useState('');
-  const [gameMode, setGameMode] = useState('301');
-  const [bestOf, setBestOf] = useState(3);
-  const [player1GamesWon, setPlayer1GamesWon] = useState(0);
-  const [player2GamesWon, setPlayer2GamesWon] = useState(0);
-  const [gameNumber, setGameNumber] = useState(1);
-  const [gameWinners, setGameWinners] = useState([]);
-  const [overallWinner, setOverallWinner] = useState('');
+  const {
+    player1Score,
+    setPlayer1Score,
+    player2Score,
+    setPlayer2Score,
+    currentPlayer,
+    setCurrentPlayer,
+    inputScore,
+    setInputScore,
+    gameMode,
+    setGameMode,
+    bestOf,
+    setBestOf, 
+    player1GamesWon,
+    setPlayer1GamesWon,
+    player2GamesWon,
+    setPlayer2GamesWon,
+    gameNumber,
+    setGameNumber,
+    gameWinners,
+    setGameWinners,
+    overallWinner,
+    setOverallWinner,
+  } = useGameState();
 
   useEffect(() => {
     if (player1GamesWon >= Math.ceil(bestOf / 2)) {
@@ -23,7 +37,7 @@ function Game() {
     } else {
       setOverallWinner('');
     }
-  }, [player1GamesWon, player2GamesWon, bestOf]);
+  }, [player1GamesWon, player2GamesWon, bestOf, setOverallWinner]);
 
   const handleScoreInput = () => {
     if (overallWinner) {
